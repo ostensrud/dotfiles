@@ -1,0 +1,33 @@
+alignment top_left
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white 
+default_outline_color green 
+default_shade_color cyan
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+font 6x10
+gap_x 5
+gap_y 28
+minimum_size 1910 5
+maximum_width 1910
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+own_window yes
+own_window_class Conky
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+
+TEXT
+${scroll 16 $nodename - $sysname $kernel on $machine | } | ${color}Uptime:${color green} $uptime ${color}| Frequency (in MHz):${color green} $freq ${color} | RAM Usage:${color green} $mem/$memmax - $memperc%  ${color} | Swap Usage:${color green} $swap/$swapmax - $swapperc%  ${color} | CPU Usage:$color $cpu% ${color} | Processes:${color green} $processes  ${color}Running:${color green} $running_processes ${color} | File systems: / ${color green}${fs_free /}/${fs_size /} ${color} | Networking: Up:${color green} ${upspeed eth0} k/s${color} - Down:${color green} ${downspeed eth0} k/s
