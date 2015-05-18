@@ -15,7 +15,7 @@
 
 !! Stuff by OIST
 URxvt.geometry: 80x50
-URxvt.fading: 10%
+URxvt.fading: 0%
 
 urxvt.font:             xft:Bitstream Vera Sans Mono:pixelsize=12
 urxvt.boldFont:         xft:Bitstream Vera Sans Mono:bold:pixelsize=12
