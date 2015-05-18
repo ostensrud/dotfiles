@@ -29,9 +29,10 @@ urxvt.depth: 32
 !! urxvt*perl-ext-common: default,matcher,searchable-scrollback
 
  URxvt*perl-lib:        ~/.urxvt/ext/
- URxvt.perl-ext-common: default,matcher,searchable-scrollback
+ URxvt.perl-ext-common: default,matcher,searchable-scrollback,url-select,keyboard-select
+ URxvt.keysym.M-y: perl:keyboard-select:activate
  URxvt.keysym.M-u: perl:url-select:select_next
- URxvt.url-launcher:    /usr/bin/chromium-browser
+ URxvt.url-select.launcher: /usr/bin/chromium-browser
  URxvt*matcher.button:  1
  
 !! drop in Solarized colorscheme for Xresources/Xdefaults
