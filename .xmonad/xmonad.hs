@@ -1,10 +1,84 @@
--- default desktop configuration for Fedora
 import XMonad
+-- Prompt
+import XMonad.Prompt
+import XMonad.Prompt.RunOrRaise (runOrRaisePrompt)
+import XMonad.Prompt.AppendFile (appendFilePrompt)
+-- Hooks
+import XMonad.Operations
+ 
+import System.IO
+import System.Exit
+ 
+import XMonad.Util.Run
+ 
+import XMonad.Actions.CycleWS
+ 
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.EwmhDesktops
+ 
+import XMonad.Layout.NoBorders (smartBorders, noBorders)
+import XMonad.Layout.PerWorkspace (onWorkspace, onWorkspaces)
+import XMonad.Layout.Reflect (reflectHoriz)
+import XMonad.Layout.IM
+import XMonad.Layout.SimpleFloat
+import XMonad.Layout.Spacing
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.LayoutHints
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Grid
+
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M
 
 main = do
+ dzenLeftBar <- spawnPipe myXmonadBar
+ dzenRightBar <- spawnPipe myStatusBar 
  xmonad $ defaultConfig
         { borderWidth        = 2
-        , terminal           = "urxvt"
+        , terminal           = myTerminal
+        , workspaces         = myWorkspaces
         , normalBorderColor  = "#000000"
         , focusedBorderColor = "#657b83"
+        , logHook            = myLogHook dzenLeftBar >> fadeInactiveLogHook 0xdddddddd
+        , layoutHook          = layoutHook'
 }
+
+myTerminal = "urxvt"
+myWorkspaces = ["1:main","2:web","3:tunnels","4:whatever"]
+myBitmapsDir = "/home/oist/.xmonad/dzen3"
+myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
+myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ defaultPP
+  {
+        ppCurrent           =   dzenColor "#ebac54" "#1B1D1E" . pad
+      , ppVisible           =   dzenColor "white" "#1B1D1E" . pad
+      , ppHidden            =   dzenColor "white" "#1B1D1E" . pad
+      , ppHiddenNoWindows   =   dzenColor "#7b7b7b" "#1B1D1E" . pad
+      , ppUrgent            =   dzenColor "#ff0000" "#1B1D1E" . pad
+      , ppWsSep             =   " "
+      , ppSep               =   "  |  "
+      , ppLayout            =   dzenColor "#ebac54" "#1B1D1E" .
+                                (\x -> case x of
+                                    "ResizableTall"             ->      "(RT)"
+                                    "Mirror ResizableTall"      ->      "(MR)"
+                                    "Full"                      ->      "(F)"
+                                    "Simple Float"              ->      "~"
+                                    _                           ->      x
+                                )
+      , ppTitle             =   (" " ++) . dzenColor "white" "#1B1D1E" . dzenEscape
+      , ppOutput            =   hPutStrLn h
+  }
+
+layoutHook'  =  customLayout
+
+customLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full ||| simpleFloat
+  where
+    tiled   = ResizableTall 1 (2/100) (1/2) []
+

@@ -1,0 +1,8 @@
+background yes
+out_to_console yes
+out_to_x no
+# Update interval in seconds
+update_interval 1
+ 
+TEXT
+Up:^fg(\#fffc63) ${upspeed eth0} ^fg(\#ffffff)k/s - Down:^fg(\#fffc63) ${downspeed eth0} ^fg(\#ffffff)k/s | ${time %A} ${time %d.%m.%Y} ${time %H}:${time %M}:${time %S} 
