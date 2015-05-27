@@ -44,13 +44,13 @@ main = do
         , workspaces         = myWorkspaces
         , normalBorderColor  = "#000000"
         , focusedBorderColor = "#657b83"
+        , focusFollowsMouse  = False
         , logHook            = myLogHook dzenLeftBar >> fadeInactiveLogHook 0xdddddddd
         , layoutHook          = layoutHook'
 }
 
 myTerminal = "urxvt"
 myWorkspaces = ["1:main","2:web","3:tunnels","4:whatever"]
-myBitmapsDir = "/home/oist/.xmonad/dzen3"
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
 myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 
