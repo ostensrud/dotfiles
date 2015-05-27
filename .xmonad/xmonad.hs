@@ -24,6 +24,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerWorkspace (onWorkspace, onWorkspaces)
 import XMonad.Layout.Reflect (reflectHoriz)
+import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Layout.IM
 import XMonad.Layout.SimpleFloat
 import XMonad.Layout.Spacing
@@ -44,6 +45,7 @@ main = do
         , workspaces         = myWorkspaces
         , normalBorderColor  = "#000000"
         , focusedBorderColor = "#657b83"
+        , keys               = myKeys <+> keys defaultConfig
         , focusFollowsMouse  = False
         , logHook            = myLogHook dzenLeftBar >> fadeInactiveLogHook 0xdddddddd
         , layoutHook          = layoutHook'
@@ -51,8 +53,8 @@ main = do
 
 myTerminal = "urxvt"
 myWorkspaces = ["1:main","2:web","3:tunnels","4:whatever"]
-myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E' -fn Vera:size=10"
+myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0' -fn Vera:size=10"
 
 myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ defaultPP
@@ -82,3 +84,43 @@ customLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full ||| simpleFloat
   where
     tiled   = ResizableTall 1 (2/100) (1/2) []
 
+--}}}
+
+-- Theme {{{
+-- Color names are easier to remember:
+colorOrange         = "#FD971F"
+colorDarkGray       = "#1B1D1E"
+colorPink           = "#F92672"
+colorGreen          = "#A6E22E"
+colorBlue           = "#66D9EF"
+colorYellow         = "#E6DB74"
+colorWhite          = "#CCCCC6"
+
+barFont  = "terminus"
+barXFont = "inconsolata:size=8"
+xftFont = "xft: inconsolata-10"
+--}}} 
+-- Prompt Config {{{
+mXPConfig :: XPConfig
+mXPConfig =
+    defaultXPConfig { font                  = barFont
+                    , bgColor               = colorDarkGray
+                    , fgColor               = colorGreen
+                    , bgHLight              = colorGreen
+                    , fgHLight              = colorDarkGray
+                    , promptBorderWidth     = 0
+                    , height                = 14
+                    , historyFilter         = deleteConsecutive
+                    }
+ 
+-- Run or Raise Menu
+largeXPConfig :: XPConfig
+largeXPConfig = mXPConfig
+                { font = xftFont
+                , height = 22
+                }
+-- }}}
+
+myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
+    [ ((modMask,                    xK_p        ), runOrRaisePrompt largeXPConfig)
+    ]
