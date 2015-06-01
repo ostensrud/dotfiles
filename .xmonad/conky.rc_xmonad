@@ -3,6 +3,6 @@ out_to_console yes
 out_to_x no
 # Update interval in seconds
 update_interval 1
- 
+
 TEXT
-Up:^fg(\#fffc63) ${upspeed eth0} ^fg(\#ffffff)k/s - Down:^fg(\#fffc63) ${downspeed eth0} ^fg(\#ffffff)k/s | ${time %A} ${time %d.%m.%Y} ${time %H}:${time %M}:${time %S} 
+CPU@^fg(\#ffffff)$freq^fg(\#a6e22e)Mhz - ^fg(\#ffffff)$cpu%^fg(\#a6e22e) | RAM:^fg(\#ffffff) $mem^fg(\#a6e22e)/^fg(\#ffffff)$memmax - $memperc%^fg(\#a6e22e) | Swap:^fg(\#ffffff) $swap/$swapmax - $swapperc%^fg(\#a6e22e) | Up:^fg(\#ffffff) ${upspeed eth0} ^fg(\#a6e22e)k/s - Down:^fg(\#ffffff) ${downspeed eth0} ^fg(\#a6e22e)k/s | ${time %A} ${time %d.%m.%Y} ${time %H}:${time %M}:${time %S} 
