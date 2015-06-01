@@ -4,6 +4,7 @@
 dir=~/dotfiles
 olddir=~/old_dotfiles
 files="bashrc vimrc Xdefaults conkyrc"
+xmonad_files=".xmonad/xmonad.hs .xmonad/conky.rc_xmonad"
 
 echo "Creating backup folder for existing dotfiles in ~"
 
@@ -18,6 +19,13 @@ for file in $files; do
   mv ~/.$file ~/old_dotfiles/
   echo "Creating symlink to $file"
   ln -s $dir/$file ~/.$file
+done
+
+for file in $xmonad_files; do
+  echo "Backing up $file"
+  mv ~/$file ~/old_dotfiles/
+  echo "Creating symlink to $file"
+  ln -s $dir/$file ~/$file
 done
 
 echo "All done!"
