@@ -59,14 +59,14 @@ myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta '
 myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ defaultPP
   {
-        ppCurrent           =   dzenColor "#ebac54" "#1B1D1E" . pad
+        ppCurrent           =   dzenColor "#a6e22e" "#1B1D1E" . pad
       , ppVisible           =   dzenColor "white" "#1B1D1E" . pad
       , ppHidden            =   dzenColor "white" "#1B1D1E" . pad
       , ppHiddenNoWindows   =   dzenColor "#7b7b7b" "#1B1D1E" . pad
       , ppUrgent            =   dzenColor "#ff0000" "#1B1D1E" . pad
       , ppWsSep             =   " "
       , ppSep               =   "  |  "
-      , ppLayout            =   dzenColor "#ebac54" "#1B1D1E" .
+      , ppLayout            =   dzenColor "#a6e22e" "#1B1D1E" .
                                 (\x -> case x of
                                     "ResizableTall"             ->      "(RT)"
                                     "Mirror ResizableTall"      ->      "(MR)"
