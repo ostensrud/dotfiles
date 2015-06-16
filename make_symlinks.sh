@@ -3,7 +3,7 @@
 
 dir=~/dotfiles
 olddir=~/old_dotfiles
-files="bashrc vimrc Xdefaults conkyrc"
+files="bashrc vimrc Xdefaults Xresources conkyrc"
 xmonad_files=".xmonad/xmonad.hs .xmonad/conky.rc_xmonad"
 
 echo "Creating backup folder for existing dotfiles in ~"
