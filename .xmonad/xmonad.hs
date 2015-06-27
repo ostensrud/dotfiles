@@ -49,10 +49,11 @@ main = do
         , focusFollowsMouse  = False
         , logHook            = myLogHook dzenLeftBar >> fadeInactiveLogHook 0xdddddddd
         , layoutHook          = layoutHook'
+        , manageHook          = manageHook'
 }
 
 myTerminal = "urxvt"
-myWorkspaces = ["1:main","2:web","3:tunnels","4:whatever"]
+myWorkspaces = ["1:main","2:web","3:tunnels","4:whatever","5:spotify"]
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E' -fn Vera:size=10"
 myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0' -fn Vera:size=10"
 
@@ -124,3 +125,18 @@ largeXPConfig = mXPConfig
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask,                    xK_p        ), runOrRaisePrompt largeXPConfig)
     ]
+
+-- ManageHook {{{
+manageHook' :: ManageHook
+manageHook' = (composeAll . concat $
+  [ [className  =?  c --> doShift "2:web"     | c <-  myWebs  ] -- move webapps to web
+  ,[className  =?  c --> doShift "5:spotify" | c <-  myMusic ] -- move music to music
+  ])
+  where
+    role = stringProperty "WM_WINDOW_ROLE"
+    name = stringProperty "WM_NAME"
+
+    --classnames
+    myMusic = ["Spotify"]
+    myWebs  = ["Chromium","Chromium-browser","Firefox"]
+-- }}}

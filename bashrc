@@ -12,7 +12,8 @@ export PS1='[\t \[\e[0;34m\]\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\] \W]\[\e[0;33m\]$
 export HISTCONTROL=ignoredups
 
 # User specific aliases and functions
-export EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 alias tmapp="cd ~/dev/ergotmapp"
