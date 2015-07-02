@@ -9,7 +9,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%{$fg[yellow]%}%b%{$reset_color%}%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%})"
 precmd() { vcs_info }
 setopt prompt_subst
-PROMPT='[%* %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%M%{$reset_color%} %~]${vcs_info_msg_0_}$ '
+PROMPT='[%* %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %~]${vcs_info_msg_0_}$ '
 #PROMPT='${vcs_info_msg_0_} '
 
 
@@ -45,3 +45,13 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias ll="ls -l"
+alias tmapp="cd ~/dev/ergotmapp"
+alias tmlog="tail -fn 0 ~/dev/ergotmapp/var/log/httpd-ws/error_log"
+alias dsfdb="cd ~/dev/dsfdb"
+alias ergobo="cd ~/dev/ergobo"
+alias iftorg="cd ~/dev/infotorg"
+alias syi="sudo yum install"
+alias syu="sudo yum update"
+alias tunnels-start='bash -c "~/dev/autotunnel/autoSSH/ssh-tunnels.sh ytensrud"'
+alias tunnels-stop='sudo killall -9 autossh;sudo killall -9 ssh'
+alias tunnels-restart='sudo killall -9 autossh;sudo killall -9 ssh; sleep 5;bash -c "~/dev/autotunnel/autoSSH/ssh-tunnels.sh ytensrud"'
