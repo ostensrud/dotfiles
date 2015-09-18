@@ -9,7 +9,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%{$fg[yellow]%}%b%{$reset_color%}%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%})"
 precmd() { vcs_info }
 setopt prompt_subst
-PROMPT='[%* %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %~]${vcs_info_msg_0_}$ '
+PROMPT='[%D{%H:%M:%S} %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %1~]${vcs_info_msg_0_}$ '
 #PROMPT='${vcs_info_msg_0_} '
 
 
