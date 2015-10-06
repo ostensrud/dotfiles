@@ -32,4 +32,6 @@ echo "All done!"
 echo
 echo "Remember to install bash-completion and git-prompt if not already installed"
 echo "Git-propmt can be found here: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+echo "If xmonad refuses to recompile, try to install libghc-xmonad-contrib-dev"
+echo "And you'll need to install urxvt-perls as well. (https://github.com/muennich/urxvt-perls/)"
 
