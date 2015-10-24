@@ -41,6 +41,7 @@ main = do
  dzenRightBar <- spawnPipe myStatusBar 
  xmonad $ defaultConfig
         { borderWidth        = 2
+        , modMask            = mod4Mask -- use Super instead of Alt
         , terminal           = myTerminal
         , workspaces         = myWorkspaces
         , normalBorderColor  = "#000000"
