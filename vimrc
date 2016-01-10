@@ -24,7 +24,7 @@ set backspace=2 " make backspace work like most other apps
 
 "Perldoc
 :set keywordprg=perldoc\ -f
-
+:set listchars=tab:>-,trail:.,eol:$
 map <F3> :set hlsearch!<CR>
 map <F6> :set list!<CR>
 
