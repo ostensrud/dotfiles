@@ -55,7 +55,7 @@ main = do
 }
 
 myTerminal = "urxvt"
-myWorkspaces = ["1:main","2:web","3:IDE","4:spotify","5:tunnels"]
+myWorkspaces = ["1:main","2:web","3:IDE","4:spotify","5:notes"]
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E' -fn Vera:size=10"
 myStatusBar = "conky -c ~/.xmonad/conky.rc_xmonad | dzen2 -x '640' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0' -fn Vera:size=10"
 
@@ -134,6 +134,7 @@ manageHook' = (composeAll . concat $
   [ [className  =?  c --> doShift "2:web"     | c <-  myWebs  ] -- move webapps to web
   ,[className  =?  c --> doShift "4:spotify" | c <-  myMusic ] -- move music to music
   ,[className  =?  c --> doShift "3:IDE" | c <-  myIDE ] -- move IDE to IDE
+  ,[className  =?  c --> doShift "5:notes" | c <-  myNotes] -- move IDE to IDE
   ])
   where
     role = stringProperty "WM_WINDOW_ROLE"
@@ -141,6 +142,7 @@ manageHook' = (composeAll . concat $
 
     --classnames
     myMusic = ["Spotify"]
-    myWebs  = ["Chromium","Chromium-browser","Firefox"]
+    myWebs  = ["Chromium","Chromium-browser","chromium-browser","Firefox"]
     myIDE   = ["jetbrains-idea-ce"]
+    myNotes = ["sublime_text","Sublime_text"]
 -- }}}
