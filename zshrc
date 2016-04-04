@@ -10,7 +10,8 @@ zstyle ':vcs_info:git*' formats "(%{$fg[yellow]%}%b%{$reset_color%}%{$fg[red]%}%
 precmd() { vcs_info }
 setopt prompt_subst
 PROMPT='[%D{%H:%M:%S} %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %1~]${vcs_info_msg_0_}$ '
-#PROMPT='${vcs_info_msg_0_} '
+
+PATH=$PATH:~/dev_tools/nodejs/bin
 
 
 setopt histignorealldups sharehistory
