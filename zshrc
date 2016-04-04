@@ -12,6 +12,7 @@ setopt prompt_subst
 PROMPT='[%D{%H:%M:%S} %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %1~]${vcs_info_msg_0_}$ '
 
 PATH=$PATH:~/dev_tools/nodejs/bin
+export EDITOR=vim
 
 
 setopt histignorealldups sharehistory
