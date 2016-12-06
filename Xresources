@@ -21,6 +21,9 @@ urxvt.font:             xft:Bitstream Vera Sans Mono:pixelsize=12
 urxvt.boldFont:         xft:Bitstream Vera Sans Mono:bold:pixelsize=12
 
 urxvt.depth: 32
+urxvt.transparent: true
+urxvt.tintcolor: white
+urxvt.shading: 10
 
 !! Stuff by OIST END
 
