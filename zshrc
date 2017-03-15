@@ -9,7 +9,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%{$fg[yellow]%}%b%{$reset_color%}%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%})"
 precmd() { vcs_info }
 setopt prompt_subst
-PROMPT='%{%F{069}%}[%{$reset_color%}%{%F{051}%}%D{%H:%M:%S}%{$reset_color%} %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}%{%F{069}%}]%{$reset_color%} %{%F{070}%}%2~%{$reset_color%}${vcs_info_msg_0_} $ '
+PROMPT='%{%F{069}%}[%{$reset_color%}%{%F{051}%}%D{%H:%M:%S}%{$reset_color%} %{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}%{%F{069}%}]%{$reset_color%} %{%F{070}%}%2~%{$reset_color%}${vcs_info_msg_0_} 
+%{%F{070}%}$%{$reset_color%} '
 
 setopt histignorealldups sharehistory
 setopt CORRECT
