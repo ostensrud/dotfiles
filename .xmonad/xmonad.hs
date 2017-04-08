@@ -125,7 +125,8 @@ largeXPConfig = mXPConfig
 -- }}}
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((modMask,                    xK_p        ), runOrRaisePrompt largeXPConfig)
+    [ ((modMask,                    xK_p        ), runOrRaisePrompt largeXPConfig),
+      ((modMask,                    xK_Escape   ), spawn "setkeybl")
     ]
 
 -- ManageHook {{{
