@@ -30,6 +30,5 @@ map <F6> :set list!<CR>
 
 "set background=light
 set background=dark
-colorscheme solarized
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
