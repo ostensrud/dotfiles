@@ -155,6 +155,6 @@ manageHook' = (composeAll . concat $
     --classnames
     myMusic = ["Spotify"]
     myWebs  = ["Chromium","Chromium-browser","chromium-browser","Firefox"]
-    myIDE   = ["jetbrains-idea-ce"]
+    myIDE   = ["jetbrains-idea-ce", "jetbrains-idea"]
     myNotes = ["sublime_text","Sublime_text","Visual Studio Code","Code"]
 -- }}}
