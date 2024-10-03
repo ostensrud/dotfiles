@@ -1,0 +1,26 @@
+{
+    "workspace.library": [
+        "/Users/oivindstensrud/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/local/Cellar/neovim/0.10.1/share/nvim/runtime/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/neo-tree.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/nui.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/cmp-buffer/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/mason-tool-installer.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/cmp-path/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/LuaSnip/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/mason.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/lspkind.nvim/lua",
+        "/Users/oivindstensrud/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/Users/oivindstensrud/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
