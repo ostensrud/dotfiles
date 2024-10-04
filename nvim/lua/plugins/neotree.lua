@@ -8,7 +8,7 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   opts = {
-    filesystem = { follow_current_file = { enabled = true } },
+    filesystem = { follow_current_file = { enabled = true }, use_libuv_file_watcher = true },
   },
   keys = { { "<leader>nt", "<cmd>Neotree toggle<cr>", desc = "Neotree" } },
 }
