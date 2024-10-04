@@ -21,6 +21,12 @@ return {
         nvim_lsp["ts_ls"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
+          init_options = {
+            preferences = {
+              importModuleSpecifierPreference = "non-relative",
+              importModuleSpecifierEnding = "minimal",
+            },
+          },
         })
       end,
       ["cssls"] = function()
